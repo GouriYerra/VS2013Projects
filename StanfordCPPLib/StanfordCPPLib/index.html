@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Stanford Portable Library for C++</title>
+</head>
+<body>
+<h1>The Stanford Portable Library for C++</h1>
+<p>This package contains a fork of the code for the Stanford Portable C++ library,
+as described in the <a href="doc/PortableGraphicsLibrary.pdf">paper</a>
+by Eric Roberts and Keith Schwarz included in the
+<a href="doc/index.html"><code>doc</code></a> directory.
+You can download the source code for the library by clicking on the
+following link: <a href="cpplib.zip"><code>cpplib.zip</code></a>.
+
+<p>This fork of the code has been modified by Christopher Painter-Wakefield in
+several ways, mainly with the purpose of bringing the library more in line with
+the C++ 11 standard.  Specifically, the following changes have been made:</p>
+<ul>
+<li>The <code>foreach</code> macro and all uses of it have been removed in
+favor of C++ 11 range-based <code>for</code> loops.</li>
+<li>Most collections (Vector, Set, HashSet, Map, HashMap) now support C++ 11 
+initializer lists.  E.g, the following code is now correct using the library:
+<pre>
+    Vector&lt;int&gt; v = {1, 2, 3, 4};
+</pre>
+and also
+<pre>
+    Map&lt;string, int&gt; m;
+    m = {{"apple", 5}, {"orange", 6}, {"pear", 4}};
+</pre>
+</li>
+<li>Several collections (Vector, Set, HashSet) now provide constructors 
+taking in first, last iterators in order to easily convert one collection 
+to another.</li>
+<li>The <code>Thread</code> class and supporting functionality have been 
+removed.  This was done in order to simplify the maintenance of the Windows
+port of the code.</li>
+<li>Various small bugfixes and fixes to the documentation have been made.</li>
+</ul>
+
+<p>The <code>Makefile</code> in the root directory should make a complete
+version of the library on Unix-based systems or Mac OS X.
+Building the <code>.lib</code> file for Windows-based systems depends on
+what version of the operating system and what programming environment
+you are using.
+The sources included in this package should compile in any standard C++
+environment, but you will need to create the necessary projects on your
+own.
+The <a href="spl.zip"><code>spl.jar</code></a> file in the
+<code>java</code> directory should work on any platform that supports
+Java 6 or any more recent version.
+
+<p>This package is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by the
+Free Software Foundation (see
+<a href="http://www.gnu.org/licenses/gpl.html"
+><code>http://www.gnu.org/licenses/gpl.html</code></a>).
+
+<p>This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
+
+<hr>
+
+<div style="font-size: 9pt;">
+Last modified on August 10 2015 by cpw
+</div>
+</body>
+</html>
